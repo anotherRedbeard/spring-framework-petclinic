@@ -16,3 +16,6 @@ target/
 
 # OS
 .DS_Store
+
+# deployment
+deploy.*.sh

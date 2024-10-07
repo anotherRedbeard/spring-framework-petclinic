@@ -22,6 +22,8 @@ import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
@@ -35,6 +37,7 @@ import java.util.Map;
 public class VetController {
 
     private final ClinicService clinicService;
+    private static final Logger logger = LoggerFactory.getLogger(VetController.class);
 
 
     @Autowired
@@ -48,6 +51,7 @@ public class VetController {
         // so it is simpler for Object-Xml mapping
         Vets vets = getVets();
         model.put("vets", vets);
+        logger.info("VetController: Returning vets view");
         return "vets/vetList";
     }
 
